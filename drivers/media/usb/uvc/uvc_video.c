@@ -1930,7 +1930,8 @@ static int uvc_video_start_transfer(struct uvc_streaming *stream,
 		int intfnum = stream->intfnum;
 
 		/* Isochronous endpoint, select the alternate setting. */
-		bandwidth = stream->ctrl.dwMaxPayloadTransferSize;
+		// bandwidth = stream->ctrl.dwMaxPayloadTransferSize;
+		bandwidth = 16 * 1000000 / 64000; // x mpbs * 1000000 / 64000
 
 		if (bandwidth == 0) {
 			uvc_dbg(stream->dev, VIDEO,
